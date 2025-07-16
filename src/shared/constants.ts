@@ -1,0 +1,16 @@
+export enum DocumentStatus {
+  INITIAL = 'INITIAL',
+  PROCESSING = 'PROCESSING',
+  COMPLETED = 'COMPLETED',
+  MANUAL_REVIEW = 'MANUAL_REVIEW',
+  ERROR = 'ERROR',
+}
+
+export enum SourceType {
+  LLM = 'LLM',
+  MANUAL_REVIEW = 'MANUAL_REVIEW',
+  CORRECTED = 'CORRECTED',
+}
+
+export const MAX_POLLING_ATTEMPTS = 10;
+export const POLLING_INTERVAL_MS = 2000; 

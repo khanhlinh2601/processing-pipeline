@@ -1,0 +1,73 @@
+{
+  "family": "processing-pipeline",
+  "networkMode": "awsvpc",
+  "executionRoleArn": "arn:aws:iam::${AWS_ACCOUNT_ID}:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::${AWS_ACCOUNT_ID}:role/processingPipelineTaskRole",
+  "containerDefinitions": [
+    {
+      "name": "processing-pipeline",
+      "image": "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/processing-pipeline:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/processing-pipeline",
+          "awslogs-region": "${AWS_REGION}",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "environment": [
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "name": "AWS_REGION",
+          "value": "${AWS_REGION}"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "SCHEMA_API_URL",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/processing-pipeline/SCHEMA_API_URL"
+        },
+        {
+          "name": "S3_BUCKET_NAME",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/processing-pipeline/S3_BUCKET_NAME"
+        },
+        {
+          "name": "SQS_QUEUE_URL",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/processing-pipeline/SQS_QUEUE_URL"
+        },
+        {
+          "name": "SQS_MANUAL_REVIEW_QUEUE_URL",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/processing-pipeline/SQS_MANUAL_REVIEW_QUEUE_URL"
+        },
+        {
+          "name": "DYNAMODB_DOCUMENT_TABLE",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/processing-pipeline/DYNAMODB_DOCUMENT_TABLE"
+        },
+        {
+          "name": "DYNAMODB_DOCUMENT_TERM_MAPPING_TABLE",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/processing-pipeline/DYNAMODB_DOCUMENT_TERM_MAPPING_TABLE"
+        },
+        {
+          "name": "BEDROCK_MODEL_ID",
+          "valueFrom": "arn:aws:ssm:${AWS_REGION}:${AWS_ACCOUNT_ID}:parameter/processing-pipeline/BEDROCK_MODEL_ID"
+        }
+      ]
+    }
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "512",
+  "memory": "1024"
+} 
