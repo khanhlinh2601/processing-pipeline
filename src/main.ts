@@ -53,14 +53,23 @@ async function startSQSConsumer(app: INestApplication, queueUrl: string) {
             if (message.Body) {
               const messageBody = JSON.parse(message.Body);
               
-              // Process message
-              await processorService.processMessage(messageBody);
-              
-              // Delete message from queue after successful processing
-              if (message.ReceiptHandle) {
-                await sqsService.deleteMessage(queueUrl, message.ReceiptHandle);
+              // Verify message has required fields
+              if (messageBody.bucket && messageBody.key && messageBody.jobId) {
+                // Process document
+                await processorService.processDocument({
+                  bucket: messageBody.bucket,
+                  key: messageBody.key,
+                  documentId: messageBody.documentId,
+                });
+                
+                // Delete message from queue after successful processing
+                if (message.ReceiptHandle) {
+                  await sqsService.deleteMessage(queueUrl, message.ReceiptHandle);
+                } else {
+                  logger.warn('Message has no receipt handle, cannot delete from queue');
+                }
               } else {
-                logger.warn('Message has no receipt handle, cannot delete from queue');
+                logger.warn('Message missing required fields (bucket, key, jobId), skipping');
               }
             } else {
               logger.warn('Received message with no body, skipping');

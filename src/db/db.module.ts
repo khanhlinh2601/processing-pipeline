@@ -1,11 +1,21 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { DocumentRepository } from './document.repository';
 import { ClientsModule } from '../client/clients.module';
+import { DocumentJobRepository } from './document-job.repository';
+import { LineageNodeRepository } from './lineage-node.reposioty';
+import { LineageRelationshipRepository } from './lineage-relation.repository';
 
 @Module({
   imports: [ConfigModule, ClientsModule],
-  providers: [DocumentRepository],
-  exports: [DocumentRepository],
+  providers: [
+    DocumentJobRepository,
+    LineageNodeRepository,
+    LineageRelationshipRepository,
+  ],
+  exports: [
+    DocumentJobRepository,
+    LineageNodeRepository,
+    LineageRelationshipRepository,
+  ],
 })
 export class DbModule {} 
