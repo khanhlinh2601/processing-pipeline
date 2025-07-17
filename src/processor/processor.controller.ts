@@ -1,11 +1,19 @@
-import { Controller, Post, Body, Get, Param } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param, HttpStatus } from '@nestjs/common';
 import { ProcessorService } from './processor.service';
 import { CustomLogger } from '../shared/logger';
 
-interface ProcessDocumentDto {
+export interface ProcessDocumentDto {
   bucket: string;
   key: string;
   documentId: string;
+  jobId?: string;
+}
+
+export interface ProcessDocumentResponse {
+  status: string;
+  documentId: string;
+  jobId?: string;
+  timestamp: string;
 }
 
 @Controller('processor')
@@ -15,21 +23,36 @@ export class ProcessorController {
   constructor(private readonly processorService: ProcessorService) {}
 
   @Post('document')
-  async processDocument(@Body() processDocumentDto: ProcessDocumentDto) {
+  async processDocument(@Body() processDocumentDto: ProcessDocumentDto): Promise<ProcessDocumentResponse> {
     this.logger.log(`Received request to process document with documentId: ${processDocumentDto.documentId}`);
+    
+    const jobId = processDocumentDto.jobId || this.generateJobId();
     
     await this.processorService.processDocument({
       bucket: processDocumentDto.bucket,
       key: processDocumentDto.key,
       documentId: processDocumentDto.documentId,
+      jobId,
     });
 
-    return { status: 'Processing started', documentId: processDocumentDto.documentId };
+    return { 
+      status: 'PROCESSING', 
+      documentId: processDocumentDto.documentId,
+      jobId,
+      timestamp: new Date().toISOString()
+    };
   }
-
-  @Get('document/:documentId')
-  async getDocumentStatus(@Param('documentId') documentId: string) {
-    // This could be extended to actually check the status in the database
-    return { message: `Status check for document ${documentId} is not implemented yet` };
+  
+  @Get('health')
+  healthCheck() {
+    return {
+      status: HttpStatus.OK,
+      message: 'Service is healthy',
+      timestamp: new Date().toISOString()
+    };
+  }
+  
+  private generateJobId(): string {
+    return `job-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
   }
 } 

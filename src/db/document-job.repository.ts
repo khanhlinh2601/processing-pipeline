@@ -34,7 +34,7 @@ export class DocumentJobRepository {
       region: this.configService.get<string>('AWS_REGION') || 'us-east-1',
     });
     this.docClient = DynamoDBDocumentClient.from(client);
-    this.tableName = this.configService.get<string>('DYNAMODB_TABLE_NAME') || 'document-jobs';
+    this.tableName = this.configService.get<string>('DYNAMODB_DOCUMENT_TABLE') || 'document-jobs';
   }
   
   async updateStatus(documentId: string, status: DocumentStatus, errorMessage?: string): Promise<void> {

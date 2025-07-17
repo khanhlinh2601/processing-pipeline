@@ -12,7 +12,8 @@ export const awsConfig = registerAs('aws', () => ({
   },
   dynamodb: {
     documentTableName: process.env.DYNAMODB_DOCUMENT_TABLE,
-    documentTermMappingTableName: process.env.DYNAMODB_DOCUMENT_TERM_MAPPING_TABLE,
+    lineageNodesTableName: process.env.DYNAMODB_LINEAGE_NODES_TABLE,
+    lineageRelationshipsTableName: process.env.DYNAMODB_LINEAGE_RELATIONSHIPS_TABLE,
   },
   bedrock: {
     modelId: process.env.BEDROCK_MODEL_ID || 'anthropic.claude-v2',

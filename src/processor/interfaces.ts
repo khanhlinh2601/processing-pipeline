@@ -89,4 +89,5 @@ export interface DocumentProcessRequest {
   bucket: string;
   key: string;
   documentId: string;
+  jobId?: string;
 } 
