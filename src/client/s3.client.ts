@@ -10,9 +10,23 @@ export class S3Service {
   private readonly logger = new CustomLogger(S3Service.name);
 
   constructor(private configService: ConfigService) {
-    this.s3Client = new S3Client({
-      region: this.configService.get<string>('aws.region'),
-    });
+    const awsConfig = this.configService.get('aws');
+    
+    // Create client configuration
+    const clientConfig: any = {
+      region: awsConfig.region,
+    };
+
+    // Add credentials if they exist
+    if (awsConfig.credentials?.accessKeyId && awsConfig.credentials?.secretAccessKey) {
+      clientConfig.credentials = {
+        accessKeyId: awsConfig.credentials.accessKeyId,
+        secretAccessKey: awsConfig.credentials.secretAccessKey,
+        ...(awsConfig.credentials.sessionToken && { sessionToken: awsConfig.credentials.sessionToken }),
+      };
+    }
+
+    this.s3Client = new S3Client(clientConfig);
   }
 
   async getObject(bucket: string, key: string): Promise<any> {

@@ -2,6 +2,11 @@ import { registerAs } from '@nestjs/config';
 
 export const awsConfig = registerAs('aws', () => ({
   region: process.env.AWS_REGION || 'ap-southeast-1',
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    sessionToken: process.env.AWS_SESSION_TOKEN, // Optional for temporary credentials
+  },
   s3: {
     bucketName: process.env.S3_BUCKET_NAME,
   },

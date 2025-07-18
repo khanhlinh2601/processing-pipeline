@@ -14,9 +14,23 @@ export class SQSService {
   private readonly logger = new CustomLogger(SQSService.name);
 
   constructor(private configService: ConfigService) {
-    this.sqsClient = new SQSClient({
-      region: this.configService.get<string>('aws.region'),
-    });
+    const awsConfig = this.configService.get('aws');
+    
+    // Create client configuration
+    const clientConfig: any = {
+      region: awsConfig.region,
+    };
+
+    // Add credentials if they exist
+    if (awsConfig.credentials?.accessKeyId && awsConfig.credentials?.secretAccessKey) {
+      clientConfig.credentials = {
+        accessKeyId: awsConfig.credentials.accessKeyId,
+        secretAccessKey: awsConfig.credentials.secretAccessKey,
+        ...(awsConfig.credentials.sessionToken && { sessionToken: awsConfig.credentials.sessionToken }),
+      };
+    }
+
+    this.sqsClient = new SQSClient(clientConfig);
   }
 
   async receiveMessages(queueUrl: string, maxNumberOfMessages = 1) {

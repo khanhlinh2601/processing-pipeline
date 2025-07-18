@@ -17,9 +17,23 @@ export class DynamoDBService {
   private readonly logger = new CustomLogger(DynamoDBService.name);
 
   constructor(private configService: ConfigService) {
-    this.ddbClient = new DynamoDBClient({
-      region: this.configService.get<string>('aws.region'),
-    });
+    const awsConfig = this.configService.get('aws');
+    
+    // Create client configuration
+    const clientConfig: any = {
+      region: awsConfig.region,
+    };
+
+    // Add credentials if they exist
+    if (awsConfig.credentials?.accessKeyId && awsConfig.credentials?.secretAccessKey) {
+      clientConfig.credentials = {
+        accessKeyId: awsConfig.credentials.accessKeyId,
+        secretAccessKey: awsConfig.credentials.secretAccessKey,
+        ...(awsConfig.credentials.sessionToken && { sessionToken: awsConfig.credentials.sessionToken }),
+      };
+    }
+
+    this.ddbClient = new DynamoDBClient(clientConfig);
     
     this.ddbDocClient = DynamoDBDocumentClient.from(this.ddbClient);
   }

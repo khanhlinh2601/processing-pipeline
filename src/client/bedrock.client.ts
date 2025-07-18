@@ -47,11 +47,26 @@ export class BedrockService {
   private readonly logger = new CustomLogger(BedrockService.name);
 
   constructor(private configService: ConfigService) {
-    this.bedrockClient = new BedrockRuntimeClient({
-      region: 'ap-southeast-1',
-    });
+    const awsConfig = this.configService.get('aws');
+    
+    // Create client configuration
+    const clientConfig: any = {
+      region: awsConfig.bedrock.region,
+    };
+
+    // Add credentials if they exist
+    if (awsConfig.credentials?.accessKeyId && awsConfig.credentials?.secretAccessKey) {
+      clientConfig.credentials = {
+        accessKeyId: awsConfig.credentials.accessKeyId,
+        secretAccessKey: awsConfig.credentials.secretAccessKey,
+        ...(awsConfig.credentials.sessionToken && { sessionToken: awsConfig.credentials.sessionToken }),
+      };
+    }
+
+    this.bedrockClient = new BedrockRuntimeClient(clientConfig);
     this.bedrockAgentClient = new BedrockAgentRuntimeClient({
-      region: 'us-east-1',
+      ...clientConfig,
+      region: 'us-east-1', // Bedrock Agent is typically in us-east-1
     });
   }
 
