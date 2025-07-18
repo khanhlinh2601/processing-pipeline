@@ -41,6 +41,17 @@ export class DocumentJobRepository {
     try {
       this.logger.log(`Updating job ${documentId} status to ${status}`);
       
+      // First, find the job to get its timestamp
+      const jobs = await this.findByDocumentId(documentId);
+      
+      if (!jobs || jobs.length === 0) {
+        this.logger.warn(`Document job not found for update with documentId ${documentId}`);
+        throw new Error(`Document job not found with documentId ${documentId}`);
+      }
+      
+      // Use the most recent job (assuming they're sorted by timestamp in descending order)
+      const job = jobs[0];
+      
       const now = new Date().toISOString();
       let updateExpression = 'SET #status = :status, updatedAt = :updatedAt';
       
@@ -53,10 +64,12 @@ export class DocumentJobRepository {
         updateExpression += ', errorMessage = :errorMessage';
         expressionAttributeValues[':errorMessage'] = errorMessage;
       }
+      
       const command = new UpdateCommand({
         TableName: this.tableName,
         Key: {
-          documentId,
+          documentId: job.documentId,
+          timestamp: job.timestamp
         },
         UpdateExpression: updateExpression,
         ExpressionAttributeNames: {

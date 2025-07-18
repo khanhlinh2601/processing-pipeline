@@ -1,66 +1,47 @@
+export interface DocumentExtraction {
+  extraction: {
+    extracted_data_entities: {
+      logical_entities: ExtractedEntity[];
+    }
+    data_relationships: {
+      entity_relationships: DataRelationship[];
+    }	
+  };
+}
+
 export interface ExtractedEntity {
-  name: string;
-  type: string;
-  value: string;
-  metadata?: Record<string, any>;
-}
-
-export interface Attribute {
-  attribute_id: string;
-  attribute_name: string;
-  data_type: string;
-}
-
-export interface LogicalEntity {
   entity_id: string;
   entity_name: string;
-  entity_type: string;
-  description: string;
-  attributes: Attribute[];
-  confidence_score: number;
+  entity_description: string;
+  attributes: EntityAttribute[];
 }
 
-export interface EntityRelationship {
-  relationship_id: string;
+export interface EntityAttribute {
+  attribute_name: string;
+  description: string;
+  sample_values: string[];
+}
+
+export interface DataRelationship {
   source_entity: string;
   target_entity: string;
   relationship_type: string;
+  description: string;
+  confidence: number;
 }
 
-export interface DataRelationships {
-  entity_relationships: EntityRelationship[];
-}
-
-export interface ExtractionCompleteness {
-  entities_extracted: number;
-  completeness_score: number;
-}
-
-export interface QualityAssessment {
-  extraction_completeness: ExtractionCompleteness;
-}
-
-export interface ExtractedDataEntities {
-  logical_entities: LogicalEntity[];
-}
-
-export interface ProcessedDocument {
-  extracted_data_entities: ExtractedDataEntities;
-  data_relationships: DataRelationships;
-  quality_assessment: QualityAssessment;
-}
-
-export interface DocumentExtraction {
-  extracted_data_entities: ExtractedEntity[];
-  document_metadata?: Record<string, any>;
+export interface DocumentProcessRequest {
+  bucket: string;
+  key: string;
+  documentId: string;
 }
 
 export interface LineageNode {
   nodeId: string;
   nodeType: string;
   nodeName: string;
-  qualifiedName: string;
-  parentId: string | null;
+  qualifiedName?: string;
+  parentId?: string | null;
   metadata: {
     description: string;
     data_type?: string;
@@ -70,11 +51,11 @@ export interface LineageNode {
 }
 
 export interface LineageRelationship {
-  relationshipId: string;
+  relationshipId?: string;
   sourceNodeId: string;
   targetNodeId: string;
   relationshipType: string;
-  confidence: number;
+  confidence?: number;
   businessRule: {
     description: string;
   };
@@ -85,9 +66,24 @@ export interface LineageMapping {
   lineageRelationships: LineageRelationship[];
 }
 
-export interface DocumentProcessRequest {
-  bucket: string;
-  key: string;
+export interface DocumentMappingResponse {
   documentId: string;
-  jobId?: string;
+  status: string;
+  mappings: {
+    nodes: Array<{
+      nodeId: string;
+      nodeType: string;
+      nodeName: string;
+      qualifiedName: string;
+      metadata: Record<string, any>;
+      isVerified: boolean;
+    }>;
+    relationships: Array<{
+      sourceNode: string;
+      targetNode: string;
+      relationshipType: string;
+      businessRule: Record<string, any>;
+      isVerified: boolean;
+    }>;
+  };
 } 

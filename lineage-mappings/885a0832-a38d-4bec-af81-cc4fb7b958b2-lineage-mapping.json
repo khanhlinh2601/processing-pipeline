@@ -1,0 +1,621 @@
+{
+  "lineageNodes": [
+    {
+      "nodeId": "API_Operation",
+      "nodeType": "table",
+      "nodeName": "API Operation",
+      "qualifiedName": "API_Operation",
+      "parentId": null,
+      "metadata": {
+        "description": "API operations for payment integration",
+        "businessOwner": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "API_Operation_QueryBillBE",
+      "nodeType": "column",
+      "nodeName": "QueryBillBE",
+      "qualifiedName": "API_Operation.QueryBillBE",
+      "parentId": "API_Operation",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "API_Operation_PayBillBE",
+      "nodeType": "column",
+      "nodeName": "PayBillBE",
+      "qualifiedName": "API_Operation.PayBillBE",
+      "parentId": "API_Operation",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "API_Operation_GetTransactionStatusBE",
+      "nodeType": "column",
+      "nodeName": "GetTransactionStatusBE",
+      "qualifiedName": "API_Operation.GetTransactionStatusBE",
+      "parentId": "API_Operation",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_request",
+      "nodeType": "table",
+      "nodeName": "API Request",
+      "qualifiedName": "api_request",
+      "parentId": null,
+      "metadata": {
+        "description": "API request parameters and structure",
+        "businessOwner": null,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_request_partner_code",
+      "nodeType": "column",
+      "nodeName": "PartnerCode",
+      "qualifiedName": "api_request.PartnerCode",
+      "parentId": "api_request",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_request_operation",
+      "nodeType": "column",
+      "nodeName": "Operation",
+      "qualifiedName": "api_request.Operation",
+      "parentId": "api_request",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_request_request_time",
+      "nodeType": "column",
+      "nodeName": "RequestTime",
+      "qualifiedName": "api_request.RequestTime",
+      "parentId": "api_request",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_request_signature",
+      "nodeType": "column",
+      "nodeName": "Signature",
+      "qualifiedName": "api_request.Signature",
+      "parentId": "api_request",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_request_data",
+      "nodeType": "column",
+      "nodeName": "Data",
+      "qualifiedName": "api_request.Data",
+      "parentId": "api_request",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_response",
+      "nodeType": "table",
+      "nodeName": "API Response",
+      "qualifiedName": "api_response",
+      "parentId": null,
+      "metadata": {
+        "description": "API response parameters and structure",
+        "businessOwner": null,
+        "lastUpdated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_response_data",
+      "nodeType": "column",
+      "nodeName": "Data",
+      "qualifiedName": "api_response.Data",
+      "parentId": "api_response",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "lastUpdated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_bill_query",
+      "nodeType": "api_operation",
+      "nodeName": "Bill Query",
+      "qualifiedName": "api_operation_bill_query",
+      "parentId": null,
+      "metadata": {
+        "description": "API for querying bill details",
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_bill_query_userid",
+      "nodeType": "column",
+      "nodeName": "UserId",
+      "qualifiedName": "api_operation_bill_query.UserId",
+      "parentId": "api_operation_bill_query",
+      "metadata": {
+        "data_type": "string",
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_bill_query_searchvalue",
+      "nodeType": "column",
+      "nodeName": "SearchValue",
+      "qualifiedName": "api_operation_bill_query.SearchValue",
+      "parentId": "api_operation_bill_query",
+      "metadata": {
+        "data_type": "string",
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_bill_query_serviceid",
+      "nodeType": "column",
+      "nodeName": "ServiceId",
+      "qualifiedName": "api_operation_bill_query.ServiceId",
+      "parentId": "api_operation_bill_query",
+      "metadata": {
+        "data_type": "string",
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_bill_query_providerid",
+      "nodeType": "column",
+      "nodeName": "ProviderId",
+      "qualifiedName": "api_operation_bill_query.ProviderId",
+      "parentId": "api_operation_bill_query",
+      "metadata": {
+        "data_type": "string",
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_bill_query_addinginput",
+      "nodeType": "column",
+      "nodeName": "AddingInput",
+      "qualifiedName": "api_operation_bill_query.AddingInput",
+      "parentId": "api_operation_bill_query",
+      "metadata": {
+        "data_type": "string",
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_bill_query_channelperform",
+      "nodeType": "column",
+      "nodeName": "ChannelPerform",
+      "qualifiedName": "api_operation_bill_query.ChannelPerform",
+      "parentId": "api_operation_bill_query",
+      "metadata": {
+        "data_type": "string",
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_bill_payment",
+      "nodeType": "table",
+      "nodeName": "Bill Payment",
+      "qualifiedName": "api_operation_bill_payment",
+      "parentId": null,
+      "metadata": {
+        "description": "API for making online bill payments",
+        "businessOwner": null,
+        "last_updated": "2025-07-18T00:00:00Z",
+        "confidence_score": 0.95
+      }
+    },
+    {
+      "nodeId": "api_operation_bill_payment_user_id",
+      "nodeType": "column",
+      "nodeName": "UserId",
+      "qualifiedName": "api_operation_bill_payment.UserId",
+      "parentId": "api_operation_bill_payment",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z",
+        "confidence_score": 0.95
+      }
+    },
+    {
+      "nodeId": "api_operation_bill_payment_bill_ids",
+      "nodeType": "column",
+      "nodeName": "BillIds",
+      "qualifiedName": "api_operation_bill_payment.BillIds",
+      "parentId": "api_operation_bill_payment",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z",
+        "confidence_score": 0.95
+      }
+    },
+    {
+      "nodeId": "api_operation_bill_payment_contact_phone",
+      "nodeType": "column",
+      "nodeName": "ContactPhone",
+      "qualifiedName": "api_operation_bill_payment.ContactPhone",
+      "parentId": "api_operation_bill_payment",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z",
+        "confidence_score": 0.95
+      }
+    },
+    {
+      "nodeId": "api_operation_bill_payment_system_trace",
+      "nodeType": "column",
+      "nodeName": "SystemTrace",
+      "qualifiedName": "api_operation_bill_payment.SystemTrace",
+      "parentId": "api_operation_bill_payment",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z",
+        "confidence_score": 0.95
+      }
+    },
+    {
+      "nodeId": "api_operation_bill_payment_money_total",
+      "nodeType": "column",
+      "nodeName": "MoneyTotal",
+      "qualifiedName": "api_operation_bill_payment.MoneyTotal",
+      "parentId": "api_operation_bill_payment",
+      "metadata": {
+        "data_type": "decimal",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z",
+        "confidence_score": 0.95
+      }
+    },
+    {
+      "nodeId": "api_operation_bill_payment_transaction_time",
+      "nodeType": "column",
+      "nodeName": "TransactionTime",
+      "qualifiedName": "api_operation_bill_payment.TransactionTime",
+      "parentId": "api_operation_bill_payment",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z",
+        "confidence_score": 0.95
+      }
+    },
+    {
+      "nodeId": "api_operation_bill_payment_channel_perform",
+      "nodeType": "column",
+      "nodeName": "ChannelPerform",
+      "qualifiedName": "api_operation_bill_payment.ChannelPerform",
+      "parentId": "api_operation_bill_payment",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z",
+        "confidence_score": 0.95
+      }
+    },
+    {
+      "nodeId": "api_operation_bill_payment_payment_fee",
+      "nodeType": "column",
+      "nodeName": "PaymentFee",
+      "qualifiedName": "api_operation_bill_payment.PaymentFee",
+      "parentId": "api_operation_bill_payment",
+      "metadata": {
+        "data_type": "decimal",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z",
+        "confidence_score": 0.95
+      }
+    },
+    {
+      "nodeId": "api_operation_transaction_status",
+      "nodeType": "table",
+      "nodeName": "Transaction Status",
+      "qualifiedName": "api_operation_transaction_status",
+      "parentId": null,
+      "metadata": {
+        "description": "API for checking transaction status",
+        "businessOwner": null,
+        "last_updated": "2025-07-18T00:00:00Z",
+        "confidence_score": 0.95
+      }
+    },
+    {
+      "nodeId": "api_operation_transaction_status_return_code",
+      "nodeType": "column",
+      "nodeName": "ReturnCode",
+      "qualifiedName": "api_operation_transaction_status.ReturnCode",
+      "parentId": "api_operation_transaction_status",
+      "metadata": {
+        "data_type": "integer",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z",
+        "confidence_score": 0.95
+      }
+    },
+    {
+      "nodeId": "api_operation_transaction_status_order_no",
+      "nodeType": "column",
+      "nodeName": "OrderNo",
+      "qualifiedName": "api_operation_transaction_status.OrderNo",
+      "parentId": "api_operation_transaction_status",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z",
+        "confidence_score": 0.95
+      }
+    },
+    {
+      "nodeId": "api_operation_transaction_status_description_code",
+      "nodeType": "column",
+      "nodeName": "DescriptionCode",
+      "qualifiedName": "api_operation_transaction_status.DescriptionCode",
+      "parentId": "api_operation_transaction_status",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z",
+        "confidence_score": 0.95
+      }
+    },
+    {
+      "nodeId": "api_operation_transaction_status_sub_return_code",
+      "nodeType": "column",
+      "nodeName": "SubReturnCode",
+      "qualifiedName": "api_operation_transaction_status.SubReturnCode",
+      "parentId": "api_operation_transaction_status",
+      "metadata": {
+        "data_type": "integer",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z",
+        "confidence_score": 0.95
+      }
+    },
+    {
+      "nodeId": "api_operation_transaction_status_extra_info",
+      "nodeType": "column",
+      "nodeName": "ExtraInfo",
+      "qualifiedName": "api_operation_transaction_status.ExtraInfo",
+      "parentId": "api_operation_transaction_status",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "last_updated": "2025-07-18T00:00:00Z",
+        "confidence_score": 0.95
+      }
+    },
+    {
+      "nodeId": "api_operation_top-up",
+      "nodeType": "table",
+      "nodeName": "Top-up",
+      "qualifiedName": "api_operation_top-up",
+      "parentId": null,
+      "metadata": {
+        "description": "API for mobile top-up",
+        "businessOwner": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_top-up_userid",
+      "nodeType": "column",
+      "nodeName": "UserId",
+      "qualifiedName": "api_operation_top-up.UserId",
+      "parentId": "api_operation_top-up",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_top-up_phoneno",
+      "nodeType": "column",
+      "nodeName": "PhoneNo",
+      "qualifiedName": "api_operation_top-up.PhoneNo",
+      "parentId": "api_operation_top-up",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_top-up_topuptype",
+      "nodeType": "column",
+      "nodeName": "TopupType",
+      "qualifiedName": "api_operation_top-up.TopupType",
+      "parentId": "api_operation_top-up",
+      "metadata": {
+        "data_type": "integer",
+        "classification": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_top-up_providercode",
+      "nodeType": "column",
+      "nodeName": "ProviderCode",
+      "qualifiedName": "api_operation_top-up.ProviderCode",
+      "parentId": "api_operation_top-up",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_top-up_cardvalue",
+      "nodeType": "column",
+      "nodeName": "CardValue",
+      "qualifiedName": "api_operation_top-up.CardValue",
+      "parentId": "api_operation_top-up",
+      "metadata": {
+        "data_type": "decimal",
+        "classification": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_top-up_systemtrace",
+      "nodeType": "column",
+      "nodeName": "SystemTrace",
+      "qualifiedName": "api_operation_top-up.SystemTrace",
+      "parentId": "api_operation_top-up",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_top-up_totalpurchasingamount",
+      "nodeType": "column",
+      "nodeName": "TotalPurchasingAmount",
+      "qualifiedName": "api_operation_top-up.TotalPurchasingAmount",
+      "parentId": "api_operation_top-up",
+      "metadata": {
+        "data_type": "decimal",
+        "classification": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_top-up_totalreferamount",
+      "nodeType": "column",
+      "nodeName": "TotalReferAmount",
+      "qualifiedName": "api_operation_top-up.TotalReferAmount",
+      "parentId": "api_operation_top-up",
+      "metadata": {
+        "data_type": "decimal",
+        "classification": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_top-up_transactiontime",
+      "nodeType": "column",
+      "nodeName": "TransactionTime",
+      "qualifiedName": "api_operation_top-up.TransactionTime",
+      "parentId": "api_operation_top-up",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_top-up_datapackage",
+      "nodeType": "column",
+      "nodeName": "DataPackage",
+      "qualifiedName": "api_operation_top-up.DataPackage",
+      "parentId": "api_operation_top-up",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "api_operation_top-up_cardvaluename",
+      "nodeType": "column",
+      "nodeName": "CardValueName",
+      "qualifiedName": "api_operation_top-up.CardValueName",
+      "parentId": "api_operation_top-up",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    }
+  ],
+  "lineageRelationships": [
+    {
+      "relationshipId": "1",
+      "sourceNodeId": "API_Operation",
+      "targetNodeId": "source_entity_2",
+      "relationshipType": "USES",
+      "confidence": 0.7,
+      "businessRule": null
+    },
+    {
+      "relationshipId": "2",
+      "sourceNodeId": "API_Operation",
+      "targetNodeId": "target_entity_3",
+      "relationshipType": "RETURNS",
+      "confidence": 0.7,
+      "businessRule": null
+    },
+    {
+      "relationshipId": "uses_relationship",
+      "sourceNodeId": "api_operation_bill_payment",
+      "targetNodeId": "data_source_2",
+      "relationshipType": "USES",
+      "confidence": 0.9,
+      "businessRule": null
+    },
+    {
+      "relationshipId": "returns_relationship",
+      "sourceNodeId": "api_operation_bill_payment",
+      "targetNodeId": "data_source_3",
+      "relationshipType": "RETURNS",
+      "confidence": 0.9,
+      "businessRule": null
+    }
+  ]
+}

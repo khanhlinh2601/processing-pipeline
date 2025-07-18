@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CustomLogger } from '../shared/logger';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, PutCommand, GetCommand, QueryCommand, UpdateCommand, DeleteCommand, BatchWriteCommand } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBDocumentClient, PutCommand, GetCommand, QueryCommand, UpdateCommand, DeleteCommand, BatchWriteCommand, ScanCommand } from '@aws-sdk/lib-dynamodb';
 import { ConfigService } from '@nestjs/config';
 
 export interface LineageRelationship {
@@ -30,7 +30,7 @@ export class LineageRelationshipRepository {
       region: this.configService.get<string>('AWS_REGION') || 'us-east-1',
     });
     this.docClient = DynamoDBDocumentClient.from(client);
-    this.tableName = this.configService.get<string>('DYNAMODB_LINEAGE_RELATIONSHIPS_TABLE') || 'lineage-relationships';
+    this.tableName = this.configService.get<string>('DYNAMODB_LINEAGE_RELATIONSHIP_TABLE') || 'document-lineage-relationship-dev';
   }
 
   async createRelationship(relationship: Omit<LineageRelationship, 'relationshipId' | 'createdAt' | 'updatedAt'>): Promise<LineageRelationship> {
@@ -54,6 +54,22 @@ export class LineageRelationshipRepository {
       return newRelationship;
     } catch (error) {
       this.logger.error(`Failed to create lineage relationship: ${error.message}`);
+      throw error;
+    }
+  }
+
+  async findAll(): Promise<LineageRelationship[]> {
+    try {
+      this.logger.log('Finding all lineage relationships');
+      
+      const command = new ScanCommand({
+        TableName: this.tableName,
+      });
+      
+      const response = await this.docClient.send(command);
+      return response.Items as LineageRelationship[] || [];
+    } catch (error) {
+      this.logger.error(`Failed to find all lineage relationships: ${error.message}`);
       throw error;
     }
   }
@@ -140,14 +156,13 @@ export class LineageRelationshipRepository {
     }
   }
 
-  async bulkCreate(relationships: Array<Omit<LineageRelationship, 'relationshipId' | 'createdAt' | 'updatedAt'>>): Promise<LineageRelationship[]> {
+  async bulkCreate(relationships: Array<Omit<LineageRelationship, 'createdAt' | 'updatedAt'>>): Promise<LineageRelationship[]> {
     try {
       this.logger.log(`Bulk creating ${relationships.length} lineage relationships`);
       
       const now = new Date().toISOString();
       const createdRelationships = relationships.map(rel => ({
         ...rel,
-        relationshipId: `rel-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`,
         createdAt: now,
         updatedAt: now,
       }));

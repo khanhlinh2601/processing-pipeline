@@ -1,0 +1,398 @@
+{
+  "lineageNodes": [
+    {
+      "nodeId": "material_inventory_at_location",
+      "nodeType": "table",
+      "nodeName": "Material Inventory at Location",
+      "qualifiedName": "material_inventory_at_location",
+      "parentId": null,
+      "metadata": {
+        "description": "The entity created based on the ECAS (OMP) data",
+        "businessOwner": null,
+        "confidence_score": 0.95,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "material_inventory_at_location_plant_number",
+      "nodeType": "column",
+      "nodeName": "plant_number",
+      "qualifiedName": "material_inventory_at_location.plant_number",
+      "parentId": "material_inventory_at_location",
+      "metadata": {
+        "data_type": "string",
+        "classification": null
+      }
+    },
+    {
+      "nodeId": "material_inventory_at_location_material_number",
+      "nodeType": "column",
+      "nodeName": "material_number",
+      "qualifiedName": "material_inventory_at_location.material_number",
+      "parentId": "material_inventory_at_location",
+      "metadata": {
+        "data_type": "string",
+        "classification": null
+      }
+    },
+    {
+      "nodeId": "material_inventory_at_location_inventory_volume",
+      "nodeType": "column",
+      "nodeName": "inventory_volume",
+      "qualifiedName": "material_inventory_at_location.inventory_volume",
+      "parentId": "material_inventory_at_location",
+      "metadata": {
+        "data_type": 0,
+        "classification": null
+      }
+    },
+    {
+      "nodeId": "material_inventory_at_location_target_inventory_volume",
+      "nodeType": "column",
+      "nodeName": "target_inventory_volume",
+      "qualifiedName": "material_inventory_at_location.target_inventory_volume",
+      "parentId": "material_inventory_at_location",
+      "metadata": {
+        "data_type": 0,
+        "classification": null
+      }
+    },
+    {
+      "nodeId": "material_inventory_at_location_is_below_zero",
+      "nodeType": "column",
+      "nodeName": "is_below_zero",
+      "qualifiedName": "material_inventory_at_location.is_below_zero",
+      "parentId": "material_inventory_at_location",
+      "metadata": {
+        "data_type": true,
+        "classification": null
+      }
+    },
+    {
+      "nodeId": "material_inventory_at_location_is_below_target",
+      "nodeType": "column",
+      "nodeName": "is_below_target",
+      "qualifiedName": "material_inventory_at_location.is_below_target",
+      "parentId": "material_inventory_at_location",
+      "metadata": {
+        "data_type": true,
+        "classification": null
+      }
+    },
+    {
+      "nodeId": "material_inventory_at_location_bucket_date",
+      "nodeType": "column",
+      "nodeName": "bucket_date",
+      "qualifiedName": "material_inventory_at_location.bucket_date",
+      "parentId": "material_inventory_at_location",
+      "metadata": {
+        "data_type": "date",
+        "classification": null
+      }
+    },
+    {
+      "nodeId": "material_inventory_at_location_week_number",
+      "nodeType": "column",
+      "nodeName": "week_number",
+      "qualifiedName": "material_inventory_at_location.week_number",
+      "parentId": "material_inventory_at_location",
+      "metadata": {
+        "data_type": 0,
+        "classification": null
+      }
+    },
+    {
+      "nodeId": "material_inventory_at_location_country_code",
+      "nodeType": "column",
+      "nodeName": "country_code",
+      "qualifiedName": "material_inventory_at_location.country_code",
+      "parentId": "material_inventory_at_location",
+      "metadata": {
+        "data_type": "string",
+        "classification": null
+      }
+    },
+    {
+      "nodeId": "material_inventory_at_location_country_name",
+      "nodeType": "column",
+      "nodeName": "country_name",
+      "qualifiedName": "material_inventory_at_location.country_name",
+      "parentId": "material_inventory_at_location",
+      "metadata": {
+        "data_type": "string",
+        "classification": null
+      }
+    },
+    {
+      "nodeId": "material_inventory_at_location_sold_to_number",
+      "nodeType": "column",
+      "nodeName": "sold_to_number",
+      "qualifiedName": "material_inventory_at_location.sold_to_number",
+      "parentId": "material_inventory_at_location",
+      "metadata": {
+        "data_type": "string",
+        "classification": null
+      }
+    },
+    {
+      "nodeId": "material_inventory_at_location_goods_receipt_processing_time_in_days",
+      "nodeType": "column",
+      "nodeName": "goods_receipt_processing_time_in_days",
+      "qualifiedName": "material_inventory_at_location.goods_receipt_processing_time_in_days",
+      "parentId": "material_inventory_at_location",
+      "metadata": {
+        "data_type": 0,
+        "classification": null
+      }
+    },
+    {
+      "nodeId": "material_inventory_at_location_affiliate_plant_number",
+      "nodeType": "column",
+      "nodeName": "affiliate_plant_number",
+      "qualifiedName": "material_inventory_at_location.affiliate_plant_number",
+      "parentId": "material_inventory_at_location",
+      "metadata": {
+        "data_type": "string",
+        "classification": null
+      }
+    },
+    {
+      "nodeId": "material_inventory_at_location_ufinc",
+      "nodeType": "column",
+      "nodeName": "ufinc",
+      "qualifiedName": "material_inventory_at_location.ufinc",
+      "parentId": "material_inventory_at_location",
+      "metadata": {
+        "data_type": "string",
+        "classification": null
+      }
+    },
+    {
+      "nodeId": "material_inventory_at_location_customer_po_numbers",
+      "nodeType": "column",
+      "nodeName": "customer_po_numbers",
+      "qualifiedName": "material_inventory_at_location.customer_po_numbers",
+      "parentId": "material_inventory_at_location",
+      "metadata": {
+        "data_type": "string",
+        "classification": null
+      }
+    },
+    {
+      "nodeId": "material_inventory_at_location_horizon",
+      "nodeType": "column",
+      "nodeName": "horizon",
+      "qualifiedName": "material_inventory_at_location.horizon",
+      "parentId": "material_inventory_at_location",
+      "metadata": {
+        "data_type": "string",
+        "classification": null
+      }
+    },
+    {
+      "nodeId": "sales_order",
+      "nodeType": "table",
+      "nodeName": "sales_order",
+      "qualifiedName": "sales_order",
+      "parentId": null,
+      "metadata": {
+        "description": null,
+        "businessOwner": null,
+        "confidence_score": 0.8,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "sales_order_material_number",
+      "nodeType": "column",
+      "nodeName": "material_number",
+      "qualifiedName": "sales_order.material_number",
+      "parentId": "sales_order",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.9,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "sales_order_ship_to_country_code",
+      "nodeType": "column",
+      "nodeName": "ship_to_country_code",
+      "qualifiedName": "sales_order.ship_to_country_code",
+      "parentId": "sales_order",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.9,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "sales_order_active_stage",
+      "nodeType": "column",
+      "nodeName": "active_stage",
+      "qualifiedName": "sales_order.active_stage",
+      "parentId": "sales_order",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.9,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "sales_order_reason_for_rejection",
+      "nodeType": "column",
+      "nodeName": "reason_for_rejection",
+      "qualifiedName": "sales_order.reason_for_rejection",
+      "parentId": "sales_order",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.9,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "sales_order_record_deleted",
+      "nodeType": "column",
+      "nodeName": "record_deleted",
+      "qualifiedName": "sales_order.record_deleted",
+      "parentId": "sales_order",
+      "metadata": {
+        "data_type": "boolean",
+        "classification": null,
+        "confidence_score": 0.9,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "sales_order_sales_organization",
+      "nodeType": "column",
+      "nodeName": "sales_organization",
+      "qualifiedName": "sales_order.sales_organization",
+      "parentId": "sales_order",
+      "metadata": {
+        "data_type": 0,
+        "classification": null,
+        "confidence_score": 0.9,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "sales_order_product_family_code",
+      "nodeType": "column",
+      "nodeName": "product_family_code",
+      "qualifiedName": "sales_order.product_family_code",
+      "parentId": "sales_order",
+      "metadata": {
+        "data_type": 0,
+        "classification": null,
+        "confidence_score": 0.9,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "sales_order_material_type",
+      "nodeType": "column",
+      "nodeName": "material_type",
+      "qualifiedName": "sales_order.material_type",
+      "parentId": "sales_order",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.9,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "sales_order_below_target_impact_date",
+      "nodeType": "column",
+      "nodeName": "below_target_impact_date",
+      "qualifiedName": "sales_order.below_target_impact_date",
+      "parentId": "sales_order",
+      "metadata": {
+        "data_type": "date",
+        "classification": null,
+        "confidence_score": 0.9,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "sales_order_below_zero_impact_date",
+      "nodeType": "column",
+      "nodeName": "below_zero_impact_date",
+      "qualifiedName": "sales_order.below_zero_impact_date",
+      "parentId": "sales_order",
+      "metadata": {
+        "data_type": "date",
+        "classification": null,
+        "confidence_score": 0.9,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "sales_order_sold_to_number",
+      "nodeType": "column",
+      "nodeName": "sold_to_number",
+      "qualifiedName": "sales_order.sold_to_number",
+      "parentId": "sales_order",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.9,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "sales_order_gr_recipe_processing_time_in_days",
+      "nodeType": "column",
+      "nodeName": "gr_recipe_processing_time_in_days",
+      "qualifiedName": "sales_order.gr_recipe_processing_time_in_days",
+      "parentId": "sales_order",
+      "metadata": {
+        "data_type": 0,
+        "classification": null,
+        "confidence_score": 0.9,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "sales_order_affiliate_plant_number",
+      "nodeType": "column",
+      "nodeName": "affiliate_plant_number",
+      "qualifiedName": "sales_order.affiliate_plant_number",
+      "parentId": "sales_order",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.9,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    },
+    {
+      "nodeId": "sales_order_ufinc",
+      "nodeType": "column",
+      "nodeName": "ufinc",
+      "qualifiedName": "sales_order.ufinc",
+      "parentId": "sales_order",
+      "metadata": {
+        "data_type": "string",
+        "classification": null,
+        "confidence_score": 0.9,
+        "last_updated": "2025-07-18T00:00:00Z"
+      }
+    }
+  ],
+  "lineageRelationships": [
+    {
+      "relationshipId": "material_inventory_at_location-sales_order",
+      "sourceNodeId": "material_inventory_at_location",
+      "targetNodeId": "sales_order",
+      "relationshipType": "LINKED",
+      "confidence": 0.8,
+      "businessRule": null
+    }
+  ]
+}
